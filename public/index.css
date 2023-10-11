@@ -1,0 +1,62 @@
+.main{
+    height: 100vh;
+    min-width: 100vw;
+    display: flex;
+    background-color: whitesmoke;
+}
+
+.container{
+    max-height: 100vh;
+}
+
+.row{
+    padding:20px;
+}
+
+.nemos{
+    margin-right: 2rem;
+    padding: 20px;
+    border: 1px solid gray;
+    border-radius: 20px;
+    overflow-y: auto;
+    height: 90vh;
+}
+
+.precios{
+    height: 300px;
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid gray;
+    border-radius: 20px;
+    overflow: auto;
+}
+
+.grafico{
+    padding: 20px;
+    border: 1px solid gray;
+    border-radius: 20px;
+    flex:1;
+}
+
+.data{
+    flex-direction: column;
+    min-height: 100%;
+    display: flex;
+}
+
+.symbolsItem{
+    border: 1px gray solid;
+    margin-bottom: 5px;
+    width: 100%;
+    border-radius: 2px;
+}
+
+.divider{
+    height: 2px;
+    width: 10rem;
+    background-color: black;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
