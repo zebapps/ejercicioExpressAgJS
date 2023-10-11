@@ -13,6 +13,7 @@ app.service('DataServiceSymbols', function($http) {
 });
 
 app.controller('historicalController', function($scope, DataServiceHistorical) {
+    $scope.historicalSymbol = 'Tabla de Precios'
     $scope.cambiarValorSymbol = function(nuevoValor){
         DataServiceHistorical.getDataHistoricals(nuevoValor).then(function(response) {
             $scope.dataHistorical = response.data.historical;
