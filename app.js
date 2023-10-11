@@ -12,7 +12,7 @@ app.use(express.static('public'));
 app.get('/api/symbols', (req, res) => {
     fs.readFile(__dirname + '/data/symbols.json', 'utf-8', (err,data) => {
         if (err) {
-            res.status(500).json({error: 'Error al leer el archivo JSON'});
+            res.status(500).json({error: 'Error on read JSON File'});
         } else {
             const jsonData = JSON.parse(data);
             res.json(jsonData);
@@ -26,7 +26,7 @@ app.get('/api/symbols/:symbol', (req, res) => {
 
     fs.readFile(__dirname + '/data/symbols.json', 'utf-8', (err,data) => {
         if (err) {
-            res.status(500).json({error: 'Error al leer el archivo JSON'});
+            res.status(500).json({error: 'Error on read JSON File'});
         } else {
             const cadena = JSON.parse(data);
             console.log(symbol)
@@ -34,7 +34,7 @@ app.get('/api/symbols/:symbol', (req, res) => {
             const symbolData = cadena.symbolsList.find((r) => r.symbol === symbol)
 
             if (!symbolData) {
-                res.status(404).json({mensaje: 'El Symbolo no pertenece al conjunto de datos'});
+                res.status(404).json({mensaje: 'Symbol not found'});
             } else {
                 res.json(symbolData);
             }
@@ -45,7 +45,7 @@ app.get('/api/symbols/:symbol', (req, res) => {
 app.get('/api/historical', (req, res) => {
     fs.readFile(__dirname + '/data/historical.json', 'utf-8', (err,data) => {
         if (err) {
-            res.status(500).json({error: 'Error al leer el archivo JSON'});
+            res.status(500).json({error: 'Error on read JSON File'});
         } else {
             const jsonData = JSON.parse(data);
             res.json(jsonData);
@@ -59,15 +59,13 @@ app.get('/api/historical/:symbol', (req, res) => {
 
     fs.readFile(__dirname + '/data/historical.json', 'utf-8', (err,data) => {
         if (err) {
-            res.status(500).json({error: 'Error al leer el archivo JSON'});
+            res.status(500).json({error: 'Error on read JSON File'});
         } else {
             const cadena = JSON.parse(data);
-            console.log(symbol)
-
             const symbolData = cadena.historicalStockList.find((r) => r.symbol === symbol)
 
             if (!symbolData) {
-                res.status(404).json({mensaje: 'El Symbolo no pertenece al conjunto de datos'});
+                res.status(404).json({mensaje: 'Symbol not found'});
             } else {
                 res.json(symbolData);
             }
@@ -78,4 +76,3 @@ app.get('/api/historical/:symbol', (req, res) => {
 app.listen(port, () => {
   console.log(`La API está escuchando en http://localhost:${port}`);
 });
-
